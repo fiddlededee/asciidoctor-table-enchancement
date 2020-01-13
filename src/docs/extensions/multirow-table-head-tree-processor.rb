@@ -2,6 +2,7 @@ require 'asciidoctor/extensions' unless RUBY_ENGINE == 'opal'
 
 include Asciidoctor
 
+# remove once https://github.com/asciidoctor/asciidoctor/pull/3532 is merged.
 Extensions.register do
   tree_processor do
     process do |doc|

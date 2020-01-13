@@ -51,6 +51,16 @@
     <plugin>
       <groupId>org.asciidoctor</groupId>
       <artifactId>asciidoctor-maven-plugin</artifactId>
+      <configuration>
+        <requires>
+          <require>${project.basedir}/src/docs/extensions/feat-1338.rb</require>
+          <require>${project.basedir}/src/docs/extensions/multirow-table-head-tree-processor.rb</require>
+        </requires>
+        <attributes>
+          <stylesdir>../themes</stylesdir>
+          <stylesheet>style.css</stylesheet>
+        </attributes>
+      </configuration>
       <executions>
         <execution>
           <id>output-html</id>
@@ -59,12 +69,22 @@
             <goal>process-asciidoc</goal>
           </goals>
           <configuration>
-            <requires>
-              <require>${project.basedir}/src/docs/extensions/multirow-table-head-tree-processor.rb</require>
-            </requires>
             <sourceDirectory>src/docs/asciidoc</sourceDirectory>
             <outputDirectory>target/docs/asciidoc</outputDirectory>
             <backend>html</backend>
+            <doctype>book</doctype>
+          </configuration>
+        </execution>
+        <execution>
+          <id>output-docbook5</id>
+          <phase>generate-resources</phase>
+          <goals>
+            <goal>process-asciidoc</goal>
+          </goals>
+          <configuration>
+            <sourceDirectory>src/docs/asciidoc</sourceDirectory>
+            <outputDirectory>target/docs/asciidoc</outputDirectory>
+            <backend>docbook5</backend>
             <doctype>book</doctype>
           </configuration>
         </execution>
