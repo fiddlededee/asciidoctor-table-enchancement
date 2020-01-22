@@ -6,7 +6,7 @@ include Asciidoctor
 Extensions.register do
   tree_processor do
     process do |doc|
-      doc.find_by(context: :table).each do |table|
+      doc.find_by(context: :table, traverse_documents: true).each do |table|
         hrows = table.attr('hrows')
         if hrows
           rows = table.rows

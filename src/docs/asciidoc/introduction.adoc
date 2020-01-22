@@ -52,3 +52,19 @@
 [.is-lowercase]|Cell in column 2, row 6
 |Cell in column 3, row 6
 |====
+
+.Nested tables
+[cols="1,1",hrows=1]
+|====
+|Heading in column 1, row 1
+|Heading in column 2, row 1
+
+a|
+[hrows="2"]
+!===
+!a !a
+!b !b
+!c !c
+!===
+|Cell in column 2, row 2
+|====
